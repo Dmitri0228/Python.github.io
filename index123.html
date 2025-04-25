@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python: Циклы</title>
+    <link rel="shortcut icon" href="Без имени.png" />
+    <style>
+        :root {
+            --primary: #3498db;
+            --secondary: #2c3e50;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --warning: #ffc107;
+        }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: var(--dark);
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 100%;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+        h1, h2, h3 {
+            color: var(--secondary);
+            margin-top: 0;
+        }
+        h1 {
+            text-align: center;
+            padding: 15px 0;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--primary);
+        }
+        .section {
+            background: white;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        pre {
+            margin: 0;
+            padding: 0;
+            background: none;
+            border: none;
+        }
+        code {
+            display: block;
+            font-family: 'Fira Code', 'Courier New', monospace;
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 12px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            tab-size: 4;
+            white-space: pre;
+            margin: 10px 0;
+        }
+        .example {
+            background: #e8f4fc;
+            padding: 12px;
+            margin: 15px 0;
+            border-left: 4px solid var(--primary);
+            border-radius: 0 6px 6px 0;
+        }
+        .output {
+            background: #e8f8f0;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            white-space: pre;
+            overflow-x: auto;
+            text-align: left;
+        }
+        .warning {
+            background: #fff8e6;
+            padding: 12px;
+            border-left: 4px solid var(--warning);
+            margin: 15px 0;
+            border-radius: 0 6px 6px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.95rem;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: var(--primary);
+            color: white;
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 1.5rem;
+                padding: 10px 0;
+            }
+            h2 {
+                font-size: 1.3rem;
+            }
+            .section {
+                padding: 12px;
+            }
+            code {
+                padding: 10px;
+                font-size: 0.85rem;
+            }
+            table {
+                font-size: 0.85rem;
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Python: Циклы for и while</h1>
+        
+        <div class="section">
+            <h2>Цикл for</h2>
+            <p>Для перебора элементов последовательности:</p>
+            <code>for элемент in последовательность:
+    # выполняемый код</code>
+            
+            <div class="example">
+                <h3>Пример со списком:</h3>
+                <code>fruits = ["яблоко", "банан"]
+for fruit in fruits:
+    print(fruit)</code>
+                <div class="output">
+                    Вывод:<br>яблоко<br>банан
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Цикл while</h2>
+            <p>Выполняется пока условие истинно:</p>
+            <code>while условие:
+    # код
+    # важно изменять условие!</code>
+            
+            <div class="example">
+                <code>count = 0
+while count < 3:
+    print(count)
+    count += 1</code>
+                <div class="output">
+                    Вывод:<br>0<br>1<br>2
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Функция range()</h2>
+            <p>Генерация числовых последовательностей:</p>
+            <code>range(5)       # 0,1,2,3,4
+range(2,5)    # 2,3,4
+range(0,10,2) # 0,2,4,6,8</code>
+            
+            <div class="example">
+                <code>for i in range(3):
+    print(i*2)</code>
+                <div class="output">
+                    Вывод:<br>0<br>2<br>4
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Оператор break</h2>
+            <p>Немедленный выход из цикла:</p>
+            
+            <div class="example">
+                <code>for num in range(10):
+    if num == 5:
+        break
+    print(num)</code>
+                <div class="output">
+                    Вывод:<br>0<br>1<br>2<br>3<br>4
+                </div>
+            </div>
+            
+            <div class="warning">
+                <h3>Важно!</h3>
+                <p>В while без break убедитесь, что условие станет False, иначе цикл будет бесконечным.</p>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2025 Основы Python | Циклы</p>
+        </footer>
+    </div>
+</body>
+</html>
